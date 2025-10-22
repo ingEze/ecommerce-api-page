@@ -1,0 +1,258 @@
+---
+const features = [
+  {
+    url: 'https://github.com/ingEze/ecommerce-api/blob/main/src/docs/documentation.es.md#-sistema-de-autenticaci%C3%B3n',
+    icon: '🔐',
+    title: 'Autenticación Completa',
+    description: 'Sistema JWT con access y refresh tokens. Verificación de email y recuperación de contraseña.',
+    color: '#6366f1'
+  },
+  {
+    url: 'https://github.com/ingEze/ecommerce-api/blob/main/src/docs/documentation.es.md#productos',
+    icon: '📦',
+    title: 'Gestión de Productos',
+    description: 'CRUD completo con búsqueda avanzada, filtros, paginación y control de stock.',
+    color: '#ec4899'
+  },
+  {
+    url: 'https://github.com/ingEze/ecommerce-api/blob/main/src/docs/documentation.es.md#%C3%B3rdenes',
+    icon: '🛒',
+    title: 'Sistema de Órdenes',
+    description: 'Procesamiento de pagos simulados con tarjeta y PayPal. Transacciones atómicas.',
+    color: '#10b981'
+  },
+  {
+    url: 'https://github.com/ingEze/ecommerce-api/blob/main/src/docs/documentation.es.md#wishlist',
+    icon: '❤️',
+    title: 'Wishlist',
+    description: 'Lista de deseos personalizada para cada usuario con gestión completa.',
+    color: '#f59e0b'
+  },
+  {
+    url: 'https://github.com/ingEze/ecommerce-api/blob/main/src/docs/documentation.es.md#-seguridad',
+    icon: '🔒',
+    title: 'Seguridad Robusta',
+    description: 'Rate limiting, bcrypt, cookies httpOnly y validación estricta de datos.',
+    color: '#8b5cf6'
+  },
+  {
+    url: 'https://github.com/ingEze/ecommerce-api/blob/main/src/docs/documentation.es.md#-logging-y-monitoreo',
+    icon: '📊',
+    title: 'Logging & Monitoreo',
+    description: 'Winston para logs estructurados y Morgan para tracking de requests HTTP.',
+    color: '#06b6d4'
+  }
+];
+---
+
+<section id="features" class="features">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-badge">Características</span>
+      <h2>Todo lo que necesitas en una API</h2>
+      <p class="section-description">
+        Una solución completa y moderna para tu plataforma de e-commerce
+      </p>
+    </div>
+
+    <div class="features-grid">
+      {features.map((feature) => (
+        <div class="feature-card">
+          <div class="feature-icon" style={`background: linear-gradient(135deg, ${feature.color}20 0%, ${feature.color}05 100%); border-color: ${feature.color}30;`}>
+            <span style={`font-size: 2rem;`}>{feature.icon}</span>
+          </div>
+          <h3>{feature.title}</h3>
+          <p>{feature.description}</p>
+          <div class="feature-link">
+            <a href={feature.url} target="_blank" style={`color: ${feature.color};`}>
+              Conocer más →
+            </a>
+          </div>
+        </div>
+      ))}
+    </div>
+
+    <div class="tech-stack">
+      <h3>Tecnologías Utilizadas</h3>
+      <div class="tech-badges">
+        <span class="tech-badge">TypeScript</span>
+        <span class="tech-badge">Node.js</span>
+        <span class="tech-badge">Express</span>
+        <span class="tech-badge">MongoDB</span>
+        <span class="tech-badge">JWT</span>
+        <span class="tech-badge">express-rate-limit</span>
+        <span class="tech-badge">Zod</span>
+        <span class="tech-badge">Winston</span>
+        <span class="tech-badge">Morgan</span>
+        <span class="tech-badge">Vitest</span>
+        <span class="tech-badge">Docker</span>
+        <span class="tech-badge">Swagger</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .features {
+    padding: 6rem 0;
+    position: relative;
+  }
+
+  .section-header {
+    text-align: center;
+    margin-bottom: 4rem;
+  }
+
+  .section-badge {
+    display: inline-block;
+    background: rgba(99, 102, 241, 0.1);
+    border: 1px solid var(--primary);
+    color: var(--primary);
+    padding: 0.5rem 1rem;
+    border-radius: 2rem;
+    font-size: 0.875rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+  }
+
+  .section-header h2 {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+    font-weight: 800;
+  }
+
+  .section-description {
+    font-size: 1.125rem;
+    color: var(--text-secondary);
+    max-width: 600px;
+    margin: 0 auto;
+  }
+
+  .features-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 2rem;
+    margin-bottom: 5rem;
+  }
+
+  .feature-card {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    min-height: 320px;
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: 1rem;
+    padding: 2rem;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .feature-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, var(--primary) 0%, var(--secondary) 100%);
+    transform: scaleX(0);
+    transition: transform 0.4s ease;
+  }
+
+  .feature-card:hover {
+    transform: translateY(-8px);
+    border-color: var(--primary);
+    box-shadow: 0 20px 40px rgba(99, 102, 241, 0.2);
+  }
+
+  .feature-card:hover::before {
+    transform: scaleX(1);
+  }
+
+  .feature-icon {
+    width: 80px;
+    height: 80px;
+    border-radius: 1rem;
+    border: 1px solid;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 1.5rem;
+    transition: all 0.3s ease;
+  }
+
+  .feature-card:hover .feature-icon {
+    transform: scale(1.1) rotate(5deg);
+  }
+
+  .feature-card h3 {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+    font-weight: 700;
+  }
+
+  .feature-card p {
+    color: var(--text-secondary);
+    line-height: 1.7;
+    margin-bottom: 1.5rem;
+  }
+
+  .feature-link a {
+    font-weight: 600;
+    transition: all 0.3s ease;
+  }
+
+  .feature-link a:hover {
+    transform: translateX(5px);
+    display: inline-block;
+  }
+
+  .tech-stack {
+    text-align: center;
+    padding: 3rem;
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: 1.5rem;
+  }
+
+  .tech-stack h3 {
+    font-size: 1.5rem;
+    margin-bottom: 2rem;
+    font-weight: 700;
+  }
+
+  .tech-badges {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    justify-content: center;
+  }
+
+  .tech-badge {
+    background: linear-gradient(135deg, rgba(99, 102, 241, 0.1) 0%, rgba(236, 72, 153, 0.1) 100%);
+    border: 1px solid var(--border);
+    padding: 0.75rem 1.5rem;
+    border-radius: 2rem;
+    font-weight: 600;
+    color: var(--text-primary);
+    transition: all 0.3s ease;
+  }
+
+  .tech-badge:hover {
+    transform: translateY(-3px);
+    border-color: var(--primary);
+    background: linear-gradient(135deg, rgba(99, 102, 241, 0.2) 0%, rgba(236, 72, 153, 0.2) 100%);
+  }
+
+  @media (max-width: 768px) {
+    .features-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .section-header h2 {
+      font-size: 2rem;
+    }
+  }
+</style>

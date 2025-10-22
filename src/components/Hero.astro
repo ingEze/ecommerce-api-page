@@ -1,0 +1,290 @@
+---
+const PUBLIC_URL = import.meta.env.PUBLIC_URL
+const PUBLIC_GITHUB_URL = import.meta.env.PUBLIC_GITHUB_URL
+---
+
+<section class="hero">
+  <div class="container">
+    <div class="hero-content">
+      <div class="hero-text">
+        <span class="badge">🚀 RESTful API v1.0</span>
+        <h1>
+          Plataforma de E-commerce
+          <span class="gradient-text">Completa y Moderna</span>
+        </h1>
+        <p class="hero-description">
+          API robusta construida con Node.js, TypeScript y MongoDB. 
+          Sistema completo de autenticación, gestión de productos, 
+          órdenes y pagos simulados.
+        </p>
+        
+        <div class="hero-stats">
+          <div class="stat">
+            <span class="stat-number">100%</span>
+            <span class="stat-label">TypeScript</span>
+          </div>
+          <div class="stat">
+            <span class="stat-number">JWT</span>
+            <span class="stat-label">Seguro</span>
+          </div>
+          <div class="stat">
+            <span class="stat-number">REST</span>
+            <span class="stat-label">Architecture</span>
+          </div>
+        </div>
+
+        <div class="hero-actions">
+          <a class="btn-large btn-primary" href=`${PUBLIC_URL}/api-docs` target="_blank">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M13 10V3L4 14h7v7l9-11h-7z" fill="currentColor"/>
+            </svg>
+            Comenzar Ahora
+          </a>
+          <a class="btn-large btn-secondary" href=`${PUBLIC_GITHUB_URL}?tab=readme-ov-file#mini-e-commerce-api` target="_blank">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M12 2L2 7l10 5 10-5-10-5z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              <path d="M2 17l10 5 10-5M2 12l10 5 10-5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+            Ver Documentación
+          </a>
+        </div>
+      </div>
+
+      <div class="hero-visual">
+        <div class="code-window">
+          <div class="window-header">
+            <div class="dots">
+              <span class="dot"></span>
+              <span class="dot"></span>
+              <span class="dot"></span>
+            </div>
+            <span class="window-title">API</span>
+          </div>
+          <div class="code-content">
+            <pre><code><span class="code-keyword">POST</span> /protected/products
+<span class="code-comment">// Create new product</span>
+<span class="code-key">"title"</span>: <span class="code-string">"Wireless Mouse"</span>,
+<span class="code-key">"price"</span>: <span class="code-number">39.99</span>,
+<span class="code-key">"quantity"</span>: <span class="code-number">10</span>
+
+<span class="code-success">✓ 201 Created</span></code></pre>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="hero-gradient"></div>
+</section>
+
+<style>
+.hero {
+  position: relative;
+  padding: 6rem 0;
+  overflow: hidden;
+}
+
+.hero-content {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
+  align-items: center;
+}
+
+.badge {
+  display: inline-block;
+  background: rgba(99, 102, 241, 0.1);
+  border: 1px solid var(--primary);
+  color: var(--primary);
+  padding: 0.5rem 1rem;
+  border-radius: 2rem;
+  font-size: 0.875rem;
+  font-weight: 600;
+  margin-bottom: 1.5rem;
+}
+
+h1 {
+  font-size: 3.5rem;
+  line-height: 1.1;
+  margin-bottom: 1.5rem;
+  font-weight: 800;
+}
+
+.gradient-text {
+  background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.hero-description {
+  font-size: 1.25rem;
+  color: var(--text-secondary);
+  margin-bottom: 2rem;
+  line-height: 1.8;
+}
+
+.hero-stats {
+  display: flex;
+  gap: 3rem;
+  margin-bottom: 2.5rem;
+}
+
+.stat {
+  display: flex;
+  flex-direction: column;
+}
+
+.stat-number {
+  font-size: 1.75rem;
+  font-weight: 700;
+  color: var(--primary);
+}
+
+.stat-label {
+  font-size: 0.875rem;
+  color: var(--text-secondary);
+}
+
+.hero-actions {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.btn-large {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 1rem 2rem;
+  border-radius: 0.75rem;
+  font-size: 1rem;
+  font-weight: 600;
+  border: none;
+  transition: all 0.3s ease;
+  text-decoration: none;
+}
+
+.btn-large.btn-primary {
+  background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+  color: white;
+  box-shadow: 0 10px 30px rgba(99, 102, 241, 0.3);
+}
+
+.btn-large.btn-primary:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 15px 40px rgba(99, 102, 241, 0.4);
+}
+
+.btn-large.btn-secondary {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  color: var(--text-primary);
+}
+
+.btn-large.btn-secondary:hover {
+  border-color: var(--primary);
+  background: rgba(99, 102, 241, 0.1);
+}
+
+.btn-large.btn-secondary:hover svg path {
+  stroke: var(--primary);
+}
+
+.btn-large.btn-secondary:hover {
+  color: var(--primary);
+}
+
+.code-window {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 1rem;
+  overflow: hidden;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+}
+
+.window-header {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 1rem 1.5rem;
+  background: rgba(0, 0, 0, 0.3);
+  border-bottom: 1px solid var(--border);
+}
+
+.dots {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: var(--border);
+}
+
+.dot:nth-child(1) { background: #f87171; }
+.dot:nth-child(2) { background: #fbbf24; }
+.dot:nth-child(3) { background: var(--accent); }
+
+.window-title {
+  font-size: 0.875rem;
+  color: var(--text-secondary);
+}
+
+.code-content {
+  padding: 1.5rem;
+}
+
+pre {
+  font-family: 'Monaco', 'Courier New', monospace;
+  font-size: 0.875rem;
+  line-height: 1.8;
+}
+
+.code-keyword { color: #f472b6; }
+.code-comment { color: #64748b; }
+.code-key { color: #38bdf8; }
+.code-string { color: #4ade80; }
+.code-number { color: #fb923c; }
+.code-success { color: var(--accent); }
+
+.hero-gradient {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  width: 800px;
+  height: 800px;
+  background: radial-gradient(circle, rgba(99, 102, 241, 0.15) 0%, transparent 70%);
+  transform: translateX(-50%);
+  pointer-events: none;
+  z-index: -1;
+}
+
+@media (max-width: 968px) {
+  .hero-content {
+    grid-template-columns: 1fr;
+    gap: 3rem;
+  }
+  h1 {
+    font-size: 2.5rem;
+  }
+  .hero-visual {
+    order: -1;
+  }
+}
+
+@media (max-width: 640px) {
+  h1 {
+    font-size: 2rem;
+  }
+  .hero-stats {
+    gap: 1.5rem;
+  }
+  .btn-large {
+    width: 100%;
+    justify-content: center;
+  }
+}
+</style>

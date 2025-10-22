@@ -1,0 +1,67 @@
+<section class="contact-section" id="contact">
+  <div class="container">
+    <h2>Contáctame</h2>
+    <p>Estoy disponible en estos canales. Hacé clic para contactarme:</p>
+    <div class="contact-links">
+      <a href={`mailto:${import.meta.env.GMAIL}`} target="_blank" class="contact-btn">Correo</a>
+      <a href={import.meta.env.LINKEDIN} target="_blank" class="contact-btn">LinkedIn</a>
+      <a href={import.meta.env.MY_GITHUB} target="_blank" class="contact-btn">GitHub</a>
+      <a href={import.meta.env.X_LINK} target="_blank" class="contact-btn">X</a>
+    </div>
+  </div>
+</section>
+
+<style>
+.contact-section {
+  padding: 6rem 0 7rem;
+  text-align: center;
+}
+
+.contact-section h2 {
+  font-size: 2.5rem;
+  font-weight: 800;
+  margin-bottom: 1rem;
+  background: linear-gradient(90deg, var(--primary), var(--accent));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.contact-section p {
+  font-size: 1.125rem;
+  color: var(--text-secondary);
+  margin-bottom: 3rem;
+}
+
+.contact-links {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.contact-btn {
+  padding: 1rem 2rem;
+  border-radius: 0.75rem;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  color: var(--text-primary);
+  font-weight: 600;
+  transition: all 0.3s ease;
+  text-decoration: none;
+}
+
+.contact-btn:hover {
+  border-color: var(--primary);
+  color: var(--primary);
+  background: rgba(99,102,241,0.08);
+  transform: translateY(-3px);
+  box-shadow: 0 8px 20px rgba(99,102,241,0.2);
+}
+
+@media (max-width: 768px) {
+  .contact-btn {
+    width: 100%;
+    justify-content: center;
+  }
+}
+</style>

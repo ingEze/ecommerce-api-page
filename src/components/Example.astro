@@ -1,0 +1,190 @@
+---
+interface EndpointExample {
+  method: string;
+  endpoint: string;
+  description: string;
+  request: string;
+  response: string;
+}
+
+const PUBLIC_URL = import.meta.env.PUBLIC_URL
+
+const examples: EndpointExample[] = [
+  {
+    method: 'GET',
+    endpoint: '/protected/products',
+    description: 'Obtener lista de productos con paginación',
+    request: `GET /protected/products?page=1&limit=5`,
+    response: `{
+  "success": true,
+  "message": "Products retrieved successfully",
+  "data": {
+    "products": [
+      { "_id": "64f1c2d4b8a1e5f123456789", "title": "Laptop", "price": 1200, "quantity": 10 },
+      { "_id": "64f1c2d4b8a1e5f12345678a", "title": "Headphones", "price": 100, "quantity": 50 }
+    ]
+  }
+}`
+  },
+  {
+    method: 'POST',
+    endpoint: '/auth/register',
+    description: 'Registrar un nuevo usuario',
+    request: `POST /auth/register
+{
+  "email": "user@example.com",
+  "username": "johndoe",
+  "password": "Password123!"
+}`,
+    response: `{
+  "success": true,
+  "message": "A verification email has been sent"
+}`
+  },
+  {
+    method: 'POST',
+    endpoint: '/orders',
+    description: 'Crear una nueva orden',
+    request: `POST /orders
+{
+  "items": [
+    { "productId": "64f1c2d4b8a1e5f123456789", "title": "Laptop", "price": 1200, "quantity": 1 }
+  ],
+  "status": "pending",
+  "shippingAddress": {
+    "street": "123 Main St",
+    "city": "New York",
+    "zip": "10001"
+  }
+}`,
+    response: `{
+  "success": true,
+  "message": "Order created successfully",
+  "data": {
+    "orderId": "64f1c2d4b8a1e5f12345678c",
+    "total": 1200,
+    "status": "pending"
+  }
+}`
+  }
+];
+---
+
+<section class="examples container" id="examples">
+  <h2>💻 Ejemplos de consumo de la API</h2>
+
+  {examples.map((example) => {
+    return (
+      <div class="example-card">
+        <header>
+          <span class={`method ${example.method.toLowerCase()}`}>{example.method}</span>
+          <code>{example.endpoint}</code>
+        </header>
+        <p class="description">{example.description}</p>
+        <div class="request">
+          <h4>Request</h4>
+          <pre>{example.request}</pre>
+        </div>
+        <div class="response">
+          <h4>Response</h4>
+          <pre>{example.response}</pre>
+        </div>
+      </div>
+    );
+  })}
+
+  <h3>¿Querés probar la API realmente?</h3>
+  <p>Podes hacerlo desde tu navegador o con herramientas como <strong>Postman</strong> o <strong>cURL</strong>:</p>
+  <ul>
+    <li><a href=`${PUBLIC_URL}/api-docs` target="_blank">Abrir documentación interactiva (Swagger UI)</a></li>
+    <li>
+      Ejemplo cURL:
+      <pre class="curl">{`curl -X POST ${PUBLIC_URL}/auth/register -H "Content-Type: application/json" -d '{"email":"yourEmail@gmail.com","username":"yourUsername","password":"Password123!"}'`}</pre>
+    </li>
+  </ul>
+</section>
+
+<style is:global>
+.examples {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  padding: 2rem 0;
+}
+
+.examples h2 {
+  color: var(--primary);
+  margin-bottom: 1rem;
+  font-size: 2rem;
+}
+
+.example-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 1rem 1.5rem;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.example-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.4);
+}
+
+.example-card header {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 0.5rem;
+}
+
+.method {
+  font-weight: bold;
+  padding: 0.25rem 0.5rem;
+  border-radius: 4px;
+  color: #fff;
+  font-size: 0.85rem;
+}
+
+.method.get { background-color: #10b981; } 
+.method.post { background-color: #6366f1; } 
+.method.patch { background-color: #f59e0b; }
+.method.delete { background-color: #ef4444; }
+
+.example-card code {
+  font-family: 'Fira Code', monospace;
+  font-size: 0.95rem;
+  color: var(--primary);
+}
+
+.description {
+  margin-bottom: 0.5rem;
+  color: var(--text-secondary);
+}
+
+.request, .response {
+  background: #0f172a;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 0.75rem;
+  margin-bottom: 0.75rem;
+  overflow-x: auto;
+}
+
+.request h4, .response h4 {
+  margin-bottom: 0.25rem;
+  color: var(--secondary);
+  font-size: 0.9rem;
+}
+
+.curl {
+  display: block;
+  white-space: pre-wrap;
+  overflow-x: auto;
+  background-color: #151515;
+  padding: 0.5rem 1rem;
+  border-radius: 12px;
+  font-family: 'Fira Code', monospace;
+  font-size: .85rem;
+}
+</style>
